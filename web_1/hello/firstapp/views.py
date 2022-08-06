@@ -1,16 +1,26 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
+from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse("<h2>Глaвнaя</h2>")
+    header = "Персональные данные"
+    langs = ["Английский", "Немецкий", "Испанский"]
+    user = {"name": "Максим,", "age": 30}
+    addr = ("Виноградная", 23, 45)
+    data = {"header": header, "langs": langs, "user": user, "address": addr}
+    return render(request, "index.html", context=data)
 
 
 def about(request):
-    return HttpResponse("<h2>0 сайте</h2>")
+    return HttpResponse("About")
 
 
 def contact(request):
-    return HttpResponse("<h2>Koнтaкты</h2>")
+    return HttpResponseRedirect("/about")
+
+
+def details(request):
+    return HttpResponsePermanentRedirect("/")
 
 
 def products(request, productid):
