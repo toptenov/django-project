@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
+from firstapp.forms import UserForm
+
 
 def index(request):
-    return render(request, "firstapp/index.html")
+    userform = UserForm()
+    return render(request, "firstapp/index.html", {"form": userform})

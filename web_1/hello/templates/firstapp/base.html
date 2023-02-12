@@ -1,12 +1,15 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Заголовок{% endblock title %}</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
 <body>
+    <img id="logo" src="{% static 'images/image1.png' %}">
     <h1>{% block header %}{% endblock header %}</h1>
     <div>{% block content %}{% endblock content %}</div>
-    <div>Подвал страницы</div>
+    <div><br>Подвал страницы</div>
 </body>
 </html>
